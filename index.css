@@ -1,0 +1,68 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --sub-text-color: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    cursor: default;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 1200;
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jp-sub-text {
+    font-size: 1.3rem;
+    color: var(--sub-text-color);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInSub 1.2s ease-out 0.3s forwards;
+}
+
+.fade-in-title {
+    animation: fadeInTitle 1.2s ease-out forwards;
+}
+
+@keyframes fadeInTitle {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeInSub {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
