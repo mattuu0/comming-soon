@@ -19,12 +19,12 @@ const CONFIG = {
     restitution:     0.35,  // 反発係数（0〜1、大きいほどよく跳ねる）
     friction:        0.01,  // 摩擦係数（大きいほど滑りにくい）
     frictionAir:     0.015, // 空気抵抗（大きいほど早く止まる）
-    frictionAirZero: 0.05,  // 無重力時の空気抵抗（少し大きくしてふわっと漂わせる）
+    frictionAirZero: 0.01,  // 無重力時の空気抵抗（少し大きくしてふわっと漂わせる）
     density:         0.003, // 密度（大きいほど重くなる）
 
     // --- 無重力モード ---
     zeroGravity:     true, // true にすると最初から無重力で起動する
-    scatterForce:    0.004, // 無重力開始時に与える拡散力（大きいほど勢いよく散らばる）
+    scatterForce:    0.05, // 無重力開始時に与える拡散力（大きいほど勢いよく散らばる）
     scatterSpin:     0.1,   // 無重力開始時に与えるランダム回転の強さ
 
     // --- マウス ---
@@ -34,7 +34,7 @@ const CONFIG = {
     wallThickness:   80,    // 壁・地面・天井の厚さ（px）
 
     // --- アニメーション ---
-    fadeInDelay:     2000,  // フェードイン後、物理演出を開始するまでの待機時間（ms）
+    fadeInDelay:     0,  // フェードイン後、物理演出を開始するまでの待機時間（ms）
 
     // --- デバッグ ---
     debug:           false, // true にするとボディの輪郭を表示（確認後は false に）
@@ -43,7 +43,7 @@ const CONFIG = {
 // ============================================================
 
 
-window.addEventListener('load', () => {
+function init() {
 
     // ── DOM要素の取得 ────────────────────────────────────────
     const h1El      = document.querySelector('h1');
@@ -445,6 +445,15 @@ window.addEventListener('load', () => {
             }
         });
     }
+};
 
+window.addEventListener("load",function(evt) {
+    // 全体のコンテナを取得する
+    const container = document.querySelector(".container");
 
+    container.addEventListener("click",function(evt){
+        container.style.opacity = '0';
+
+        init();
+    })
 });
