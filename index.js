@@ -23,7 +23,7 @@ const CONFIG = {
     density:         0.003, // 密度（大きいほど重くなる）
 
     // --- 無重力モード ---
-    zeroGravity:     false, // true にすると最初から無重力で起動する
+    zeroGravity:     true, // true にすると最初から無重力で起動する
     scatterForce:    0.004, // 無重力開始時に与える拡散力（大きいほど勢いよく散らばる）
     scatterSpin:     0.1,   // 無重力開始時に与えるランダム回転の強さ
 
@@ -445,5 +445,6 @@ window.addEventListener('load', () => {
             }
         });
     }
+
 
 });
