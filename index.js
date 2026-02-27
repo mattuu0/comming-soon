@@ -19,7 +19,7 @@ const CONFIG = {
     restitution:     0.35,  // 反発係数（0〜1、大きいほどよく跳ねる）
     friction:        0.01,  // 摩擦係数（大きいほど滑りにくい）
     frictionAir:     0.015, // 空気抵抗（大きいほど早く止まる）
-    frictionAirZero: 0.01,  // 無重力時の空気抵抗（少し大きくしてふわっと漂わせる）
+    frictionAirZero: 0.0,  // 無重力時の空気抵抗（少し大きくしてふわっと漂わせる）
     density:         0.003, // 密度（大きいほど重くなる）
 
     // --- 無重力モード ---
@@ -457,3 +457,4 @@ window.addEventListener("load",function(evt) {
         init();
     })
 });
+
